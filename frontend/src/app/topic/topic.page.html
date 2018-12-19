@@ -1,0 +1,22 @@
+
+<ion-content [fullscreen]="true" #content padding>
+  <div class="iwa-test-container ads-container">
+    <div class="main-content">
+      <div text-center *ngIf="loading">
+        <ion-spinner name="dots"></ion-spinner>
+      </div>
+      <div *ngIf="topic">
+        <img class="cover" [src]="topic.coverImageUrl" alt="">
+        <h1>{{topic.title}}</h1>
+        <h2 *ngIf="topic.subtitle">{{topic.subtitle}}</h2>
+        <h2 *ngIf="topic.description">{{topic.description}}</h2>
+      </div>
+
+      <div class="content" *ngIf="topic" [innerHTML]="topic.content">
+      </div>
+    </div>
+  </div>
+  <div #scrollCheckPoint></div>
+
+</ion-content>
+

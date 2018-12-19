@@ -20,15 +20,17 @@ class Article
     self.description = html_item.next_element.text.strip rescue nil
   end
 
-  def get_original_content(url)
+  def self.get_article(url)
     document = MetaInspector.new(url)
-    self.title = document.best_title
-    self.url = url
-    self.cover_image_url = document.images.best
-    self.description = document.best_description
-    self.content = Readability::Document.new(document.to_s).content
+    article = Article.new
 
-    self
+    article.title = document.best_title
+    article.url = url
+    article.cover_image_url = document.images.best
+    article.description = document.best_description
+    article.content = Readability::Document.new(document.to_s).content
+
+    article
   end
 
 end

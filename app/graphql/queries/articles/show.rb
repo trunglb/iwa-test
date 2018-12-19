@@ -4,8 +4,7 @@ class Queries::Articles::Show < GraphQL::Schema::Resolver
   argument :url, String, "Article Url", required: true
 
   def resolve(url:)
-    @article = Article.new
-    @article = @article.get_original_content(url)
+    @article = Article.get_article(url)
   end
 
 end

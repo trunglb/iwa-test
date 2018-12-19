@@ -1,0 +1,29 @@
+<ion-content  [fullscreen]="true"  #content (ionScrollEnd)="loadMore()" padding>
+
+  <ion-row>
+    <ion-col style="padding-bottom: 5%;">
+      <div class="iwa-test-container ads-container">
+        <div class="main-content">
+          <ngx-masonry
+            class="main-content"
+            *ngIf="articles.length > 0"
+            [options]="{ transitionDuration: '0s' }"
+          >
+            <ngxMasonryItem class="masonry-item" *ngFor="let article of articles">
+              <app-topic-card [topic]="article"></app-topic-card>
+            </ngxMasonryItem>
+          </ngx-masonry>
+
+        </div>
+
+      </div>
+
+      <div text-center *ngIf="loading">
+        <ion-spinner name="dots"></ion-spinner>
+      </div>
+      <div #scrollCheckPoint></div>
+    </ion-col>
+  </ion-row>
+
+</ion-content>
+

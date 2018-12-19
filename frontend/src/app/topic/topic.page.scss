@@ -1,0 +1,19 @@
+:host * {
+  line-height: 1.6;
+}
+h1 {
+  font-weight: var(--font-weight-heading);
+  font-size: var(--font-size-heading-big);
+}
+h2 {
+  font-size: var(--font-size-big);
+  color: var(--color-grey);
+  line-height: 1.8;
+  margin: 15px 0 25px;
+}
+img.cover {
+  height: 55vh;
+  max-height: 600px;
+  object-fit: cover;
+  width: 100%;
+}

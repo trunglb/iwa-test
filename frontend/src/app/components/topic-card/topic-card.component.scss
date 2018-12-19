@@ -1,0 +1,204 @@
+.card-wrapper {
+  --image-height: 150px;
+
+  @media (min-width: 420px) {
+    --image-height: 190px;
+  }
+  padding: 8px 8px 8px 8px;
+
+  .border-wrapper {
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    padding: 8px 8px 0;
+  }
+
+  @media (min-width: 420px) {
+    padding: 12px 12px 12px 12px;
+    .border-wrapper {
+      padding: 12px 12px 0;
+    }
+  }
+
+  border-radius: var(--border-radius);
+  position: relative;
+  @keyframes tapAnimation {
+    0% {
+      opacity: 1;
+      -webkit-transform: scale(0.96);
+              transform: scale(0.96); }
+    100% {
+      opacity: 1;
+      -webkit-transform: scale(1);
+              transform: scale(1); } }
+
+  &:hover:before {
+    -webkit-animation: tapAnimation 0.25s cubic-bezier(0.31, 1, 0.34, 1) forwards;
+    animation: tapAnimation 0.25s cubic-bezier(0.31, 1, 0.34, 1) forwards;
+  }
+
+  &:before {
+    background: rgba(0, 0, 0, 0.038);
+    border-radius: var(--border-radius);
+    content: " " !important;
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    -webkit-transform: scale(0.96);
+    transform: scale(0.96);
+    width: 100%;
+  }
+
+
+  .card-content {
+    background-color: white;
+    display: block;
+    position: relative;
+    border-radius: var(--border-radius);
+  }
+
+  .cover-wrapper {
+    position: relative;
+    margin: 12px 0 10px;
+    height: var(--image-height);
+    ion-icon {
+      display: none;
+      padding: 12px 4px;
+      color: white;
+      cursor: pointer;
+      &.next-image {
+        position: absolute;
+        font-size: 28px;
+        right: 0;
+        top: calc(50% - 28px);
+      }
+      &.prev-image {
+        position: absolute;
+        font-size: 28px;
+        left: 0;
+        top: calc(50% - 28px);
+      }
+    }
+    &:hover {
+      ion-icon {
+        display: block;
+      }
+    }
+    .avatar {
+      position: absolute;
+      bottom: 10px;
+      right: 5px;
+      z-index: 2;
+      width: 30px;
+      height: 30px;
+      border: 1px solid white;
+    }
+  }
+
+  .cover {
+    height: var(--image-height);
+    background-size: cover;
+    width: 100%;
+
+    border-radius: var(--border-radius);
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+
+    &.loading {
+      background-size: inherit;
+      background-repeat: no-repeat;
+      background-position: 50% 45%;
+      background-color: var(--color-hover);
+    }
+  }
+
+  .title {
+    letter-spacing: 0.4px;
+    font-weight: var(--font-weight-heading);
+    font-size: var(--font-size-normal);
+    margin: 0px 0px 5px;
+    line-height: 1.4;
+    overflow: hidden;
+  }
+
+  .address {
+    letter-spacing: 0.4px;
+    margin: 5px 0px 8px;
+    font-size: var(--font-size-small);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--color-grey);
+  }
+
+  .content {
+    letter-spacing: 0.4px;
+    margin: 10px 0px 12px;
+    font-size: var(--font-size-xsmall);
+    text-align: center;
+    color: var(--color-grey);
+  }
+
+  .word-cloud {
+    padding: 0;
+    padding-bottom: 12px;
+    font-size: var(--font-size-medium);
+    .text-cloud-element {
+      line-height: 1.7;
+      font-weight: 400;
+    }
+  }
+
+  .card-footer {
+    padding-top: 8px;
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  .avatar {
+    width: 24px;
+    height: 24px;
+    background-size: cover;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+    cursor: pointer;
+    @media screen and (min-width: 520px) {
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  .action-wrapper {
+    ion-icon {
+      cursor: pointer;
+      font-size: 22px;
+      color: var(--color-grey);
+      @media screen and (min-width: 520px) {
+        font-size: 28px;
+      }
+    }
+  }
+}
+
+.comments-count {
+  font-size: var(--font-size-small);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-heading);
+  margin-bottom: 15px;
+}
+
+.activity {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: var(--font-size-xsmall);
+    color: var(--color-grey);
+  }
+}

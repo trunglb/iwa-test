@@ -1,0 +1,22 @@
+<div class="card-wrapper">
+  <div clear class="card-content">
+    <div class="border-wrapper">
+      <a routerLink="/topic" [queryParams]="{url: topic?.url}" clear>
+        <div class="title" title="{{topic?.title}}">
+          {{topic?.title}}
+        </div>
+        <div class="address" *ngIf="topic?.subtitle">
+          {{topic?.subtitle}}
+        </div>
+
+      <div class="cover-wrapper" *ngIf="currentAsset">
+        <div class="cover" [ngClass]="{'loading': currentAsset.loading}" [style.backgroundImage]="'url('+currentAsset.url+')'"></div>
+      </div>
+      <div *ngIf="!topic?.comments?.length && !topic?.topComments?.length && !activity?.comments?.length" class="content">
+        {{topic?.description}}
+      </div>
+    </a>
+
+    </div>
+  </div>
+</div>

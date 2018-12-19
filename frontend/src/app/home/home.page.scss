@@ -1,0 +1,36 @@
+
+.current-user {
+  display: flex;
+}
+
+.avatar {
+  margin: 0 10px 0 5px;
+  visibility: hidden;
+  height: 30px;
+  transform: translateY(-3px);
+  @media (min-width: 769px) {
+    margin: 0 15px 0 10px;
+    transform: translateY(-6px);
+    height: 50px;
+  }
+}
+
+.add-page-btn {
+  --border-radius: 50%;
+  --width: 39px;
+  --height: 39px;
+  --margin-top: 0;
+  --margin-bottom: 0;
+  font-size: 10px;
+  display: none;
+  @media (min-width: 769px) {
+    display: block;
+    margin-right: 12px;
+  }
+}
+
+.fab-buttons {
+  @media (min-width: 769px) {
+    display: none;
+  }
+}

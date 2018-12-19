@@ -1,0 +1,7 @@
+{
+  "name": "iwa-test-app",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,11 @@
+ngx-masonry  {
+  .masonry-item {
+    width: 260px;
+  }
+  @media (max-width: 779px) and (min-width: 0px) {
+    .masonry-item {
+      width: 50%;
+      position: relative;
+    }
+  }
+}
