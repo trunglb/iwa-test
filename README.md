@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/trunglb/iwa-test.svg?style=svg&circle-token=b6186b595df2ec84cf4cf87fba14218fe1a71ab3)](https://circleci.com/gh/trunglb/iwa-test)
+
 # README
 
 This README would normally document whatever steps are necessary to get the
