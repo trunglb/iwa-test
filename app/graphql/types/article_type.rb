@@ -14,4 +14,18 @@ class Types::ArticleType < Types::BaseObject
 
   field :content, String, "Article's content", null: true
 
+
+  def cover_image_url
+    if object.cover_image_url.present?
+      return object.cover_image_url
+    else
+      cache_key = "article_#{object.url}"
+      article_cache = $redis.get(cache_key)
+      if article_cache
+        article = Article.new(JSON.load(article_cache))
+        return article.try(:cover_image_url)
+      end
+    end
+
+  end
 end

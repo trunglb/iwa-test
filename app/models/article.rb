@@ -1,9 +1,14 @@
 class Article
   attr_accessor :title, :subtitle, :description, :url, :content, :cover_image_url
 
+  def initialize(args = {})
+    args.each do |k,v|
+      instance_variable_set("@#{k}", v) unless v.nil?
+    end
+  end
 
-  def self.get_ycombinator_list(page = 1)
-    document = Nokogiri::HTML(open("https://news.ycombinator.com/best?p=#{page}"))
+  def self.get_ycombinator_list(url)
+    document = Nokogiri::HTML(open(url))
     list = document.css('.athing').map do |html_item|
       article = Article.new
       article.parse_ycombinator_item(html_item)
@@ -21,7 +26,9 @@ class Article
   end
 
   def self.get_article(url)
-    document = MetaInspector.new(url)
+    user_agent = 'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)'
+
+    document = MetaInspector.new(url, :headers => {'User-Agent' => user_agent})
     article = Article.new
 
     article.title = document.best_title
@@ -31,6 +38,9 @@ class Article
     article.content = Readability::Document.new(document.to_s).content
 
     article
+  rescue Exception => e
+    p url, '======='
+    raise e
   end
 
 end
