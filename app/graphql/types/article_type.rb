@@ -23,7 +23,7 @@ class Types::ArticleType < Types::BaseObject
       article_cache = $redis.get(cache_key)
       if article_cache
         article = Article.new(JSON.load(article_cache))
-        return article.try(:cover_image_url)
+        return article.try(:cover_image_url) || ''
       end
     end
 
