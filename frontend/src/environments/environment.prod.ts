@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://api.iwa-test.app',
+  apiUrl: 'https://iwa-test.herokuapp.com/',
 };
