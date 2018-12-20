@@ -35,7 +35,7 @@ export class TopicCardComponent implements OnInit {
   }
 
   getCoverImageUrl() {
-    if (this.topic && this.topic.coverImageUrl) {
+    if (this.topic && this.topic.coverImageUrl != null) {
       this.currentAsset = {
         url: this.topic.coverImageUrl
       };
