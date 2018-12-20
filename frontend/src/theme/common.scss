@@ -2,19 +2,8 @@ body * {
   letter-spacing: 0.2px;
 }
 
-ion-header.iwa-test-header, ion-footer.iwa-test-footer {
+ion-header.iwa-test-header {
   .menu-start-wrapper {
-
-    .logo {
-      height: 40px;
-      margin-top: -7px;
-      cursor: pointer;
-      display: none;
-      @media (min-width: 769px) {
-        height: 45px;
-        display: inline-block;
-      }
-    }
     ion-menu-button {
       display: inline-block;
       margin-right: 5px;
@@ -55,10 +44,10 @@ ion-header.iwa-test-header, ion-footer.iwa-test-footer {
     }
   }
   .wrapper {
-    min-height: 68px;
+    min-height: 50px;
     background-color: white;
     display: flex;
-    padding: 4px 1%;
+    padding: 6px 1% 4px;
     justify-content: space-between;
     align-items: center;
   }
@@ -93,94 +82,7 @@ ion-back-button .button-inner, ion-back-button .back-button-inner, ion-button.ba
   font-weight: var(--font-weight-bold);
 }
 
-.empty-text {
-  font-weight: var(--font-weight-heading);
-  font-size: var(--font-size-heading-small);
-  color: var(--color-primary);
-}
-
-.sub-empty-text {
-  font-weight: var(--font-weight-heading);
-  font-size: var(--font-size-medium);
-  color: var(--color-dark);
-}
-
-tooltip.tooltip {
-  font-size: var(--font-size-normal);
-}
-
 ion-content {
   position: relative;
 }
 
-.ad-link  {
-  position: relative;
-  display: inline-block;
-  --button-width: 180px;
-  --button-height: 30px;
-  @media (min-width: 769px) {
-    --button-width: 220px;
-    --button-height: 40px;
-  }
-  button {
-    text-transform: uppercase;
-    letter-spacing: 0.4px;
-    border-radius: 8px;
-    position: absolute;
-    font-size: var(--font-size-small);
-    width: var(--button-width);
-    left: calc(50% - (var(--button-width) / 2));
-    height: var(--button-height);
-    top: calc(50% - (var(--button-height) / 2));
-    box-shadow: 3px 3px 5px -1px rgba(0,0,0,.15);
-    background-color: white;
-
-    &.side-banner {
-      display: none;
-      @media (min-width: 769px) {
-        display: block;
-        --button-width: 80%;
-        --button-height: 60px;
-        font-size: var(--font-size-xsmall);
-        line-height: 1.8;
-      }
-    }
-  }
-
-}
-
-.ads {
-  min-width: 160px;
-  &.wide {
-    width: 728px;
-    height: 110px;
-    object-fit: cover;
-  }
-  @media (max-width: 767px) {
-    &.mobile {
-      display: inline-block;
-    }
-    &.desktop {
-      display: none;
-    }
-  }
-  @media (min-width: 768px) {
-    &.mobile {
-      display: none;
-    }
-    &.desktop {
-      display: inline-block;
-    }
-  }
-}
-
-ion-modal.comment-info-slide-modal {
-  @media (max-width: 768px) {
-    ion-backdrop { display: block; }
-  }
-  @media (min-width: 601px) {
-    .modal-wrapper {
-      height: 530px;
-    }
-  }
-}

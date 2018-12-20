@@ -16,7 +16,7 @@ class Queries::Articles::Index < GraphQL::Schema::Resolver
     else
       @articles = Article.get_ycombinator_list(url)
       $redis.set(cache_key,  @articles.to_json)
-      $redis.expire(cache_key, 5.minutes.to_i)
+      $redis.expire(cache_key, 15.minutes.to_i)
     end
 
     @articles

@@ -11,7 +11,7 @@ class Queries::Articles::Show < GraphQL::Schema::Resolver
     else
       @article = Article.get_article(url)
       $redis.set(cache_key,  @article.to_json)
-      $redis.expire(cache_key, 55.minutes.to_i)
+      $redis.expire(cache_key, 1.day.to_i)
     end
     @article
   end

@@ -101,6 +101,7 @@
     height: var(--image-height);
     background-size: cover;
     width: 100%;
+    background-color: var(--color-hover);
 
     border-radius: var(--border-radius);
     border-top-left-radius: var(--border-radius);
@@ -110,7 +111,6 @@
       background-size: inherit;
       background-repeat: no-repeat;
       background-position: 50% 45%;
-      background-color: var(--color-hover);
     }
   }
 
