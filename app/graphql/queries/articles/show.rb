@@ -9,9 +9,16 @@ class Queries::Articles::Show < GraphQL::Schema::Resolver
     if article_cache
       @article = Article.new(JSON.load(article_cache))
     else
-      @article = Article.get_article(url)
-      $redis.set(cache_key,  @article.to_json)
-      $redis.expire(cache_key, 1.day.to_i)
+      begin
+        @article = Article.get_article(url)
+        $redis.set(cache_key,  @article.to_json)
+        $redis.expire(cache_key, 1.day.to_i)
+      rescue Exception => e
+        $redis.set(cache_key, Article.new({error: e}).to_json)
+        $redis.expire(cache_key, 10.minutes.to_i)
+        raise e
+      end
+
     end
     @article
   end

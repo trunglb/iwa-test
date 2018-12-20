@@ -1,5 +1,5 @@
 class Article
-  attr_accessor :title, :subtitle, :description, :url, :content, :cover_image_url
+  attr_accessor :title, :subtitle, :description, :url, :content, :cover_image_url, :error
 
   def initialize(args = {})
     args.each do |k,v|
